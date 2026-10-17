@@ -1,1 +1,774 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>讲章</title></head><body><h1>讲章内容待填</h1></body></html>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>愁苦之人的盼望</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap">
+</head><body>
+<style>
+/* 布局：左侧可隐藏的毛玻璃目录 + 满宽正文；色调从"夜间呼求"(诗77:2)的靛夜，走向"盼望"的黎明金 */
+:root{
+  --night:#0b1024; --night2:#141a3a; --ink:#e9e6f5; --muted:#a9a6c4;
+  --dawn:#f4b860; --rose:#ef7a85; --sky:#7cc4ff; --leaf:#7ee0b0; --violet:#b69cff;
+  --glass:rgba(255,255,255,.06); --glass2:rgba(255,255,255,.11); --line:rgba(255,255,255,.14);
+  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
+  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.85;margin:0;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+#sky{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(1200px 600px at 80% -10%,#2b2a6b 0%,transparent 60%),radial-gradient(900px 500px at 10% 110%,#3a2340 0%,transparent 60%),var(--night)}
+#prog{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:3px;width:0;z-index:70;background:linear-gradient(90deg,var(--sky),var(--violet),var(--dawn))}
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;display:flex;align-items:center;gap:12px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:rgba(11,16,36,.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--line)}
+.bar b{font-family:var(--serif);letter-spacing:.08em;font-size:15px}
+.bar .sp{flex:1}
+.btn{appearance:none;border:1px solid var(--line);background:var(--glass);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;transition:.25s}
+.btn:hover,.btn:focus-visible{background:var(--glass2);border-color:var(--dawn);outline:none}
+/* layout */
+.wrap{position:relative;z-index:1;display:flex}
+nav#toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 52px);align-self:flex-start;height:calc(100vh - 60px);overflow:auto;width:270px;flex:none;padding:18px 10px 40px 18px;background:rgba(20,26,58,.45);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-right:1px solid var(--line);transition:margin .35s ease,opacity .35s}
+body.hide-toc nav#toc{margin-left:-270px;opacity:0}
+nav#toc a{display:block;color:var(--muted);text-decoration:none;font-size:14px;padding:5px 10px;border-radius:8px;line-height:1.5;transition:.2s}
+nav#toc a.sub{padding-left:26px;font-size:13px}
+nav#toc a:hover{color:var(--ink);background:var(--glass)}
+nav#toc a.on{color:var(--night);background:var(--dawn);font-weight:700}
+nav#toc .h{font-size:11px;letter-spacing:.2em;color:var(--dawn);margin:14px 10px 4px}
+main{flex:1;min-width:0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px}
+@media (max-width:900px){nav#toc{position:fixed;left:0;top:calc(env(safe-area-inset-top,0px) + 50px);height:calc(100% - 50px);z-index:45;width:min(82vw,300px);background:rgba(15,20,46,.82)} body:not(.show-toc) nav#toc{margin-left:-110%;opacity:0} body.show-toc nav#toc{margin-left:0;opacity:1}}
+section{max-width:1180px;margin:0 auto;padding-block:56px 8px;scroll-margin-top:70px}
+/* hero */
+.hero{max-width:1180px;margin:0 auto;padding-block:70px 30px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+@media(max-width:820px){.hero{grid-template-columns:1fr}}
+.eyebrow{font-size:12px;letter-spacing:.35em;color:var(--dawn)}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(40px,7vw,86px);line-height:1.08;margin:.2em 0;text-wrap:balance;background:linear-gradient(180deg,#fff 20%,var(--dawn) 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-family:var(--serif);font-size:clamp(26px,3.6vw,40px);line-height:1.25;margin:0 0 14px;text-wrap:balance}
+h2 .n{font-family:var(--mono);font-size:.5em;color:var(--dawn);vertical-align:middle;margin-right:10px;border:1px solid var(--dawn);border-radius:6px;padding:2px 8px}
+h3{font-family:var(--serif);font-size:22px;margin:26px 0 8px;color:#fff}
+p{margin:.6em 0;max-width:72ch}
+.lead{font-size:18px;color:#d8d4ef}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.chip{font-size:13px;padding:4px 12px;border-radius:999px;background:var(--glass);border:1px solid var(--line)}
+.chip.d{border-color:var(--dawn);color:var(--dawn)} .chip.s{border-color:var(--sky);color:var(--sky)} .chip.r{border-color:var(--rose);color:var(--rose)} .chip.l{border-color:var(--leaf);color:var(--leaf)}
+.glass{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:20px 22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr))}
+.grid>*{min-width:0}
+.k{font-size:12px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+mark{background:linear-gradient(transparent 55%,rgba(244,184,96,.45) 55%);color:#fff;padding:0 2px}
+.hard{background:rgba(239,122,133,.13);border:1px dashed var(--rose);border-radius:12px;padding:12px 16px;margin:14px 0}
+.hard::before{content:"⚠ 难点  ";color:var(--rose);font-weight:700}
+.key{background:rgba(126,224,176,.1);border-left:4px solid var(--leaf);border-radius:0 12px 12px 0;padding:12px 16px;margin:14px 0}
+.key::before{content:"✦ 核心  ";color:var(--leaf);font-weight:700}
+.quote{border-left:3px solid var(--violet);padding:6px 16px;margin:12px 0;color:#e2dcff;font-family:var(--serif);background:rgba(182,156,255,.07);border-radius:0 10px 10px 0}
+.quote small{display:block;color:var(--muted);font-family:var(--sans);font-size:12.5px}
+/* scripture */
+.verses{font-family:var(--serif);font-size:17.5px;line-height:2}
+.verses span.v{display:block;padding:3px 10px;border-radius:8px;transition:background .3s}
+.verses span.v:hover{background:var(--glass2)}
+.verses sup{font-family:var(--mono);color:var(--dawn);font-size:11px;margin-right:6px}
+.vA{color:#ffc9cf} .vB{color:#ffe2b0} .vC{color:#c9f3dd}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:middle}
+/* tables */
+.tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line);margin:14px 0}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th,td{padding:10px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:rgba(244,184,96,.12);color:var(--dawn);font-weight:700;white-space:nowrap}
+tr:hover td{background:var(--glass)}
+/* svg */
+.fig{overflow-x:auto;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.03);padding:10px;margin:14px 0}
+.fig svg{display:block;width:100%;min-width:620px;height:auto}
+.fig figcaption{font-size:13px;color:var(--muted);padding:6px 8px 0}
+svg text{font-family:var(--sans)}
+/* chain anim */
+.chain{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0}
+.chain .st{padding:10px 16px;border-radius:14px;font-family:var(--serif);font-weight:600;border:1px solid var(--line);background:var(--glass);animation:glow 4s infinite}
+.chain .ar{color:var(--dawn)}
+.chain .st:nth-child(3){animation-delay:.8s}.chain .st:nth-child(5){animation-delay:1.6s}.chain .st:nth-child(7){animation-delay:2.4s}.chain .st:nth-child(9){animation-delay:3.2s}
+@keyframes glow{0%,70%,100%{box-shadow:none}35%{box-shadow:0 0 0 2px var(--dawn),0 0 24px rgba(244,184,96,.5)}}
+/* tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 16px}
+.tab{appearance:none;font:inherit;cursor:pointer;padding:8px 16px;border-radius:12px;border:1px solid var(--line);background:var(--glass);color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--dawn);color:var(--night);font-weight:700;border-color:var(--dawn)}
+.creed{font-family:var(--serif);font-size:19px;line-height:2.15;max-width:46em;margin:0 auto;padding:28px clamp(16px,4vw,48px);border-radius:20px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.02));border:1px solid var(--line)}
+.creed h3{text-align:center;margin-top:0;color:var(--dawn)}
+.creed .meta{text-align:center;font-family:var(--sans);font-size:13px;color:var(--muted);margin-bottom:16px}
+.creed ol{padding-left:2.2em} .creed li{margin:.3em 0}
+.creed .art{display:block;margin:.3em 0}
+.creed .art b{font-family:var(--mono);color:var(--dawn);font-size:13px;margin-right:8px}
+/* flip cards */
+.flip{perspective:900px;height:170px;cursor:pointer}
+.flip .in{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.flip .f,.flip .b{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:16px;padding:16px;display:flex;flex-direction:column;justify-content:center;border:1px solid var(--line);overflow:auto}
+.flip .f{background:linear-gradient(140deg,rgba(124,196,255,.18),rgba(182,156,255,.12));font-family:var(--serif);font-size:19px;font-weight:600}
+.flip .f small{font-family:var(--sans);font-size:12px;color:var(--muted);font-weight:400;margin-top:8px}
+.flip .b{background:linear-gradient(140deg,rgba(244,184,96,.22),rgba(239,122,133,.14));transform:rotateY(180deg);font-size:14.5px;line-height:1.7}
+/* accordion */
+details{border:1px solid var(--line);border-radius:14px;background:var(--glass);margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"＋";color:var(--dawn);font-family:var(--mono)}
+details[open] summary::before{content:"－"}
+details .ans{padding:0 18px 16px;border-top:1px dashed var(--line)}
+.foot{max-width:1180px;margin:60px auto 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:20px}
+a{color:var(--sky)}
+.rv{transition:transform .7s ease,opacity .7s ease}
+.rv.pre{transform:translateY(14px);opacity:.55}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+.badge{display:inline-block;font-size:12px;padding:1px 8px;border-radius:6px;margin-right:6px;font-weight:700}
+.bA{background:rgba(239,122,133,.2);color:var(--rose)}.bB{background:rgba(244,184,96,.2);color:var(--dawn)}.bC{background:rgba(126,224,176,.2);color:var(--leaf)}
+</style>
+
+<canvas id="sky" aria-hidden="true"></canvas>
+<div id="prog"></div>
+<div class="bar">
+  <button class="btn" id="tocBtn" aria-controls="toc">☰ 目录</button>
+  <b>愁苦之人的盼望</b><span class="sp"></span>
+  <span class="chip d" style="font-size:12px">罗 5:1-11 · 诗 77</span>
+</div>
+
+<div class="wrap">
+<nav id="toc" aria-label="目录">
+  <div class="h">导 引</div>
+  <a href="#top">🌌 题旨</a>
+  <a href="#worship">🎵 礼拜程序</a>
+  <div class="h">背 景</div>
+  <a href="#bg">📜 作者·受众·年代·处境</a>
+  <a href="#map" class="sub">🗺️ 地图</a>
+  <a href="#text">📖 经文（和合本）</a>
+  <a href="#big">🔭 跳出框架：整本圣经</a>
+  <div class="h">讲 章</div>
+  <a href="#p1">🌑 一、卑微愁苦的灵魂</a>
+  <a href="#p2">🌗 二、专心仰望神的决心</a>
+  <a href="#p3">🌕 三、神恩典的例证</a>
+  <a href="#parallel">🔗 类似经文</a>
+  <a href="#loop">♾️ 四重闭环</a>
+  <a href="#angles">🧭 多重视角</a>
+  <a href="#confess">🏛️ 信条见证</a>
+  <a href="#apply">🙏 应用</a>
+  <div class="h">信 经</div>
+  <a href="#creeds">📜 三大信经·背诵版</a>
+  <a href="#compare">⚖️ 三份信经深度对比</a>
+  <a href="#unity">🧱 三项联合信条</a>
+  <div class="h">温 习</div>
+  <a href="#qa">💬 讨论与答案</a>
+  <a href="#mind">🧠 思维导图</a>
+  <a href="#cards">🃏 记忆卡</a>
+  <a href="#sum">✅ 总结列表</a>
+</nav>
+
+<main>
+<div class="hero" id="top">
+  <div>
+    <div class="eyebrow">CONTINENTAL REFORMED · SERMON</div>
+    <h1>愁苦之人的<br>盼望</h1>
+    <p class="lead">诗人在夜里举手、不肯受安慰；保罗却说"在患难中也是欢欢喜喜的"。两者之间，隔着一个红海，也隔着一座十字架。本讲章从<mark>夜</mark>走到<mark>黎明</mark>：先看见自己的卑微，再定意仰望，最后数算神已经做成的恩典。</p>
+    <div class="chips"><span class="chip r">🌑 卑微愁苦</span><span class="chip d">🌗 专心仰望</span><span class="chip l">🌕 恩典例证</span><span class="chip s">海德堡 Q1·Q2</span></div>
+  </div>
+  <div class="glass">
+    <div class="k">一句话记住</div>
+    <p style="font-family:var(--serif);font-size:22px;line-height:1.6;margin:.4em 0">愁苦的人<b style="color:var(--rose)">往里看</b>就沉下去，<b style="color:var(--dawn)">往回看</b>神的作为就站起来，<b style="color:var(--leaf)">往前看</b>神的荣耀就欢喜。</p>
+    <div class="k" style="margin-top:12px">三个关键词</div>
+    <p>诗77:10 <b>"追念"</b> · 罗5:5 <b>"浇灌"</b> · 罗5:9-10 <b>"更要"</b></p>
+  </div>
+</div>
+
+<section id="worship">
+  <h2><span class="n">00</span>礼拜程序</h2>
+  <div class="grid g4">
+    <div class="glass"><div class="k">诗歌</div><p>🎵 圣诗 4<br>🎵 韵诗 6<br>🎵 圣诗 65<br>🎵 韵诗 23 篇</p></div>
+    <div class="glass"><div class="k">读经</div><p style="font-family:var(--serif);font-size:20px">📖 罗马书 5:1-11</p></div>
+    <div class="glass"><div class="k">证经</div><p style="font-family:var(--serif);font-size:20px">📖 诗篇 77</p></div>
+    <div class="glass"><div class="k">讲题</div><p style="font-family:var(--serif);font-size:20px">愁苦之人的盼望</p></div>
+  </div>
+  <p style="font-size:13px;color:var(--muted)">韵诗即诗篇韵文（Psalter），欧陆改革宗会众唱诗的传统：神的话不仅被讲，也被唱。诗歌编号依所在教会诗本，此处不录歌词。</p>
+</section>
+
+<section id="bg">
+  <h2><span class="n">01</span>真实背景：作者 · 受众 · 年代 · 处境</h2>
+  <div class="grid g2">
+    <div class="glass">
+      <div class="k">📖 诗篇 77</div>
+      <div class="tbl"><table style="min-width:0">
+        <tr><th>作者</th><td>亚萨（大卫时代利未人诗班领袖，代上16:5），或其后裔"亚萨的子孙"所传诗集（诗73–83）</td></tr>
+        <tr><th>题注</th><td>"照耶杜顿的做法，交与伶长"——耶杜顿也是圣殿乐师（代上16:41），表明本诗供公众敬拜用</td></tr>
+        <tr><th>年代</th><td>难以确定。许多学者因"雅各和约瑟的子孙"(v15) 与亚萨诗集中的国难背景，推测为北国亡（主前722年）或被掳前后</td></tr>
+        <tr><th>处境</th><td>一位代表众人的敬拜者，在"患难之日"夜里祷告，却觉得神沉默。个人的痛苦与民族的危机交织</td></tr>
+        <tr><th>卷位</th><td>诗篇第三卷（73–89），整卷充满"圣约似乎失败了"的呼喊，结束于诗89:49"你从前的慈爱在哪里呢？"</td></tr>
+      </table></div>
+    </div>
+    <div class="glass">
+      <div class="k">📖 罗马书 5:1-11</div>
+      <div class="tbl"><table style="min-width:0">
+        <tr><th>作者</th><td>使徒保罗（罗1:1），由德丢代笔（16:22）</td></tr>
+        <tr><th>年代</th><td>约主后 56–57 年，第三次宣教旅程末，在哥林多写成，正要送捐款上耶路撒冷（15:25-26）</td></tr>
+        <tr><th>受众</th><td>罗马城中犹太与外邦信徒混合的家庭教会。主后49年革老丢驱逐犹太人（徒18:2），54年后陆续回归，两群人关系紧张</td></tr>
+        <tr><th>处境</th><td>保罗未曾到过罗马，要借此信陈明福音、联合教会、预备往西班牙（15:24）。信徒在城中受轻视，几年后（64年）将遭尼禄逼迫</td></tr>
+        <tr><th>上下文</th><td>1–4章证明"人人都犯了罪"，"因信称义"（亚伯拉罕为例）。5:1起转入<b>称义的果子</b>：平安、盼望、确据；5:12-21 亚当与基督</td></tr>
+      </table></div>
+    </div>
+  </div>
+  <div class="key">两段经文都在回答同一个问题：<b>当神的百姓受苦时，盼望的根据在哪里？</b> 诗77 的答案是"神过去的救赎作为"（出埃及），罗5 的答案是"神在基督里已完成的救赎"（十字架）。前者是影子，后者是实体。</div>
+
+  <h3 id="map">🗺️ 地图：两条救赎的路线</h3>
+  <figure class="fig">
+  <svg viewBox="0 0 900 430" role="img" aria-label="地中海与近东示意地图">
+    <defs>
+      <linearGradient id="sea" x1="0" x2="1"><stop offset="0" stop-color="#16305a"/><stop offset="1" stop-color="#1d2f6b"/></linearGradient>
+      <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#f4b860"/></marker>
+      <marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0L10,5L0,10z" fill="#7cc4ff"/></marker>
+    </defs>
+    <rect width="900" height="430" fill="#0f1733"/>
+    <path d="M20,150 C120,120 200,180 300,190 C380,200 420,170 480,200 C540,230 600,215 650,240 L650,300 C560,300 470,290 380,300 C260,310 150,280 20,290 Z" fill="url(#sea)" opacity=".9"/>
+    <path d="M700,330 L735,330 L790,430 L755,430 Z" fill="#1d2f6b"/>
+    <text x="300" y="255" fill="#7cc4ff" font-size="16" opacity=".7">地 中 海</text>
+    <text x="760" y="410" fill="#7cc4ff" font-size="13" opacity=".8">红海</text>
+    <g font-size="14" fill="#e9e6f5">
+      <circle cx="170" cy="130" r="7" fill="#7cc4ff"/><text x="132" y="115">罗马 Rome</text>
+      <circle cx="420" cy="180" r="7" fill="#7cc4ff"/><text x="380" y="165">哥林多 Corinth</text>
+      <circle cx="690" cy="245" r="7" fill="#f4b860"/><text x="700" y="240">耶路撒冷</text>
+      <circle cx="660" cy="320" r="7" fill="#f4b860"/><text x="560" y="345">歌珊（埃及）</text>
+      <circle cx="745" cy="355" r="6" fill="#f4b860"/><text x="770" y="350">西奈</text>
+      <circle cx="850" cy="200" r="7" fill="#ef7a85"/><text x="800" y="185">巴比伦 →</text>
+    </g>
+    <path d="M410,182 C330,140 250,120 180,130" fill="none" stroke="#7cc4ff" stroke-width="2.5" stroke-dasharray="7 6" marker-end="url(#ah2)"/>
+    <text x="230" y="105" fill="#7cc4ff" font-size="13">主后57年 · 罗马书由哥林多寄出</text>
+    <path d="M660,320 C690,350 720,350 742,352" fill="none" stroke="#f4b860" stroke-width="2.5" marker-end="url(#ah)"/>
+    <path d="M748,350 C760,300 720,270 695,252" fill="none" stroke="#f4b860" stroke-width="2.5" stroke-dasharray="4 5" marker-end="url(#ah)"/>
+    <text x="40" y="400" fill="#f4b860" font-size="13">金线：诗77:15-20 所追念的出埃及（约主前15/13世纪）</text>
+    <text x="40" y="420" fill="#ef7a85" font-size="13">红点：被掳之地 —— 亚萨诗集可能的国难背景</text>
+  </svg>
+  <figcaption>示意图，非比例尺。蓝线是福音书信之路，金线是旧约救赎之路。</figcaption>
+  </figure>
+</section>
+
+<section id="text">
+  <h2><span class="n">02</span>经文（和合本）</h2>
+  <div class="legend"><span><i style="background:var(--rose)"></i>愁苦 / 人的光景</span><span><i style="background:var(--dawn)"></i>转向 / 仰望</span><span><i style="background:var(--leaf)"></i>神的作为 / 恩典</span></div>
+  <div class="grid g2" style="margin-top:12px">
+    <div class="glass verses">
+      <div class="k">证经 · 诗篇 77（亚萨的诗，照耶杜顿的做法，交与伶长）</div>
+      <span class="v vA"><sup>1</sup>我要向神发声呼求；我向神发声，他必留心听我。</span>
+      <span class="v vA"><sup>2</sup>我在患难之日寻求主；我在夜间不住地举手，我的心不肯受安慰。</span>
+      <span class="v vA"><sup>3</sup>我想念神，就烦躁不安；我沉吟悲伤，心便发昏。（细拉）</span>
+      <span class="v vA"><sup>4</sup>你叫我不能闭眼；我烦乱不安，甚至不能说话。</span>
+      <span class="v vA"><sup>5</sup>我追想古时之日，上古之年。</span>
+      <span class="v vA"><sup>6</sup>我想起我夜间的歌曲，扪心自问，我心里也仔细省察。</span>
+      <span class="v vA"><sup>7</sup>难道主要永远丢弃我，不再施恩吗？</span>
+      <span class="v vA"><sup>8</sup>难道他的慈爱永远穷尽，他的应许世世废弃吗？</span>
+      <span class="v vA"><sup>9</sup>难道神忘记开恩，因发怒就止住他的慈悲吗？（细拉）</span>
+      <span class="v vB"><sup>10</sup>我便说：这是我的懦弱，但我要追念至高者显出右手之年代。</span>
+      <span class="v vB"><sup>11</sup>我要提说耶和华所行的；我要记念你古时的奇事；</span>
+      <span class="v vB"><sup>12</sup>我也要思想你的经营，默念你的作为。</span>
+      <span class="v vC"><sup>13</sup>神啊，你的作为是洁净的；有何神大如神呢？</span>
+      <span class="v vC"><sup>14</sup>你是行奇事的神；你曾在列邦中彰显你的能力。</span>
+      <span class="v vC"><sup>15</sup>你曾用你的膀臂赎了你的民，就是雅各和约瑟的子孙。（细拉）</span>
+      <span class="v vC"><sup>16</sup>神啊，诸水见你，一见就都惊惶；深渊也都战抖。</span>
+      <span class="v vC"><sup>17</sup>云中倒出水来；天空发出响声；你的箭也飞行四方。</span>
+      <span class="v vC"><sup>18</sup>你的雷声在旋风中；电光照亮世界；大地战抖震动。</span>
+      <span class="v vC"><sup>19</sup>你的道在海中；你的路在大水中；你的脚踪无人知道。</span>
+      <span class="v vC"><sup>20</sup>你曾借摩西和亚伦的手引导你的百姓，好像羊群一般。</span>
+    </div>
+    <div class="glass verses">
+      <div class="k">读经 · 罗马书 5:1-11</div>
+      <span class="v vC"><sup>1</sup>我们既因信称义，就借着我们的主耶稣基督得与神相和。</span>
+      <span class="v vB"><sup>2</sup>我们又借着他，因信得进入现在所站的这恩典中，并且欢欢喜喜盼望神的荣耀。</span>
+      <span class="v vB"><sup>3</sup>不但如此，就是在患难中也是欢欢喜喜的；因为知道患难生忍耐，</span>
+      <span class="v vB"><sup>4</sup>忍耐生老练，老练生盼望；</span>
+      <span class="v vC"><sup>5</sup>盼望不至于羞耻，因为所赐给我们的圣灵将神的爱浇灌在我们心里。</span>
+      <span class="v vA"><sup>6</sup>因我们还软弱的时候，基督就按所定的日期为罪人死。</span>
+      <span class="v vA"><sup>7</sup>为义人死，是少有的；为仁人死，或者有敢做的；</span>
+      <span class="v vC"><sup>8</sup>惟有基督在我们还作罪人的时候为我们死，神的爱就在此向我们显明了。</span>
+      <span class="v vC"><sup>9</sup>现在我们既靠着他的血称义，就更要借着他免去神的忿怒。</span>
+      <span class="v vC"><sup>10</sup>因为我们作仇敌的时候，且借着神儿子的死得与神和好；既已和好，就更要因他的生得救了。</span>
+      <span class="v vC"><sup>11</sup>不但如此，我们既借着我们的主耶稣基督得与神和好，也就借着他以神为乐。</span>
+      <div class="hard">罗5:1 有古抄本作"让我们得与神相和"（命令语气）。改革宗主流按上下文取直述语气：平安不是我们努力去争取的，而是称义已带来的<b>事实</b>。</div>
+    </div>
+  </div>
+  <h3>🏗️ 结构对照：两段经文是同一条弧线</h3>
+  <div class="tbl"><table>
+    <tr><th>阶段</th><th>诗篇 77</th><th>罗马书 5:1-11</th><th>讲章要点</th></tr>
+    <tr><td><span class="badge bA">夜</span>人的光景</td><td>v1-9：失眠、不肯受安慰、六个"难道"</td><td>v6-10：软弱、罪人、仇敌</td><td>一、卑微愁苦的灵魂</td></tr>
+    <tr><td><span class="badge bB">转</span>定意仰望</td><td>v10-12：三个"我要"——追念、提说、思想</td><td>v1-5：因信称义 → 患难中欢喜 → 盼望</td><td>二、专心仰望神的决心</td></tr>
+    <tr><td><span class="badge bC">晨</span>神的作为</td><td>v13-20：出埃及、过红海、牧人引导</td><td>v8-11：十字架、血、复活的生命、以神为乐</td><td>三、神恩典的例证</td></tr>
+  </table></div>
+</section>
+
+<section id="big">
+  <h2><span class="n">03</span>跳出框架：在整本圣经中的位置</h2>
+  <p>先看森林，再看树。诗77 站在<b>旧约出埃及的记忆</b>与<b>被掳的黑夜</b>之间；罗5 站在<b>十字架与复活</b>之后、<b>荣耀再来</b>之前。两段经文都是"已然—未然"中的百姓在说话。</p>
+  <figure class="fig">
+  <svg viewBox="0 0 1000 250" role="img" aria-label="救赎历史时间轴">
+    <defs><linearGradient id="tl" x1="0" x2="1"><stop offset="0" stop-color="#ef7a85"/><stop offset=".55" stop-color="#b69cff"/><stop offset="1" stop-color="#f4b860"/></linearGradient></defs>
+    <line x1="40" y1="120" x2="960" y2="120" stroke="url(#tl)" stroke-width="6" stroke-linecap="round"/>
+    <g font-size="14" fill="#e9e6f5" text-anchor="middle">
+      <circle cx="60" cy="120" r="10" fill="#7ee0b0"/><text x="60" y="95">创造</text>
+      <circle cx="150" cy="120" r="10" fill="#ef7a85"/><text x="150" y="95">堕落</text><text x="150" y="150" font-size="12" fill="#a9a6c4">创3:15 应许</text>
+      <circle cx="270" cy="120" r="12" fill="#f4b860"/><text x="270" y="95">出埃及</text><text x="270" y="150" font-size="12" fill="#f4b860">诗77:15-20 追念</text>
+      <circle cx="400" cy="120" r="10" fill="#7cc4ff"/><text x="400" y="95">大卫/圣殿</text><text x="400" y="150" font-size="12" fill="#a9a6c4">亚萨的诗班</text>
+      <circle cx="510" cy="120" r="12" fill="#ef7a85"/><text x="510" y="95">亡国·被掳</text><text x="510" y="150" font-size="12" fill="#ef7a85">诗77:1-9 黑夜</text>
+      <circle cx="650" cy="120" r="14" fill="#fff"/><text x="650" y="92" font-weight="700">十字架·复活</text><text x="650" y="152" font-size="12" fill="#fff">罗5:6-10 新出埃及</text>
+      <circle cx="770" cy="120" r="10" fill="#b69cff"/><text x="770" y="95">五旬节</text><text x="770" y="150" font-size="12" fill="#b69cff">罗5:5 圣灵浇灌</text>
+      <circle cx="860" cy="120" r="10" fill="#7cc4ff"/><text x="860" y="95">教会/患难</text><text x="860" y="150" font-size="12" fill="#7cc4ff">罗5:3 我们今天</text>
+      <circle cx="950" cy="120" r="12" fill="#f4b860"/><text x="945" y="95">再来·荣耀</text><text x="935" y="150" font-size="12" fill="#f4b860">罗5:2 盼望</text>
+    </g>
+    <path d="M270,175 C400,240 560,240 650,175" fill="none" stroke="#f4b860" stroke-dasharray="5 5"/>
+    <text x="460" y="232" fill="#f4b860" font-size="13" text-anchor="middle">影子 → 实体：第一次出埃及预表基督的"出去"（路9:31 原文 exodos）</text>
+  </svg>
+  <figcaption>救赎历史时间轴：两段经文所在的位置</figcaption>
+  </figure>
+  <div class="grid g3">
+    <div class="glass"><div class="k">🔁 圣约主线</div><p>"你的慈爱…你的应许"(诗77:8) 是圣约用语（hesed、应许之言）。诗人的问题本质是：<b>神还守约吗？</b> 罗5 回答：神在基督里守了约，而且是向仇敌守约。</p></div>
+    <div class="glass"><div class="k">🌊 水与审判</div><p>"诸水见你…深渊战抖"(v16) 呼应创1 混沌之水、挪亚洪水、红海。神胜过深渊；基督受审判的水（可10:38 "我所受的洗"），叫我们<b>免去神的忿怒</b>(罗5:9)。</p></div>
+    <div class="glass"><div class="k">👣 看不见的脚踪</div><p>"你的脚踪无人知道"(v19)：神引领时，人常看不见路，只看见结果。罗5:6 "按所定的日期"：十字架也是在神看不见的计划里准时到来（加4:4）。</p></div>
+  </div>
+</section>
+
+<section id="p1">
+  <h2><span class="n">I</span>🌑 卑微愁苦的灵魂</h2>
+  <p class="lead">诗77 不是从答案开始，而是从<mark>失眠</mark>开始。圣经容许神的百姓把最黑暗的问题带进圣所。</p>
+  <div class="grid g2">
+    <div class="glass">
+      <h3 style="margin-top:0">1. 愁苦的四个层次（诗77:1-9）</h3>
+      <div class="tbl"><table style="min-width:0">
+        <tr><th>层次</th><th>经文</th><th>表现</th></tr>
+        <tr><td>🖐 身体</td><td>v2, v4</td><td>夜间举手、不能闭眼</td></tr>
+        <tr><td>💭 情感</td><td>v2-3</td><td>不肯受安慰；想念神反而烦躁</td></tr>
+        <tr><td>🗣 言语</td><td>v4</td><td>"甚至不能说话"——祷告也卡住</td></tr>
+        <tr><td>⛪ 神学</td><td>v7-9</td><td>怀疑神的慈爱、应许、恩典本身</td></tr>
+      </table></div>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">2. 六个"难道"：攻击神的属性</h3>
+      <p>v7-9 的六个问题，每一个都对准神在出34:6-7 向摩西宣告的名：</p>
+      <p>❓ 永远丢弃？ → 神是<b>不离弃</b>的<br>❓ 不再施恩？ → 神是<b>有恩典</b>的<br>❓ 慈爱穷尽？ → 神有<b>丰盛的慈爱</b><br>❓ 应许废弃？ → 神是<b>信实</b>的<br>❓ 忘记开恩？ → 神<b>记念</b>他的约<br>❓ 止住慈悲？ → 神是<b>有怜悯</b>的</p>
+      <p style="color:var(--muted);font-size:14px">诗人用神自己的话来质问神：这正是信心的挣扎，而不是不信的离开。</p>
+    </div>
+  </div>
+  <h3>3. 罗马书更深一层：我们的愁苦的根源</h3>
+  <p>诗人感受的是"神似乎离开了我"。保罗揭示更深的真相：问题不只是我受苦，而是我本来就<b>与神为敌</b>。罗5 用三个递进的词描绘未得救之人：</p>
+  <div class="chain"><span class="st" style="color:#ffd0d6">软弱 v6<br><small>无力自救</small></span><span class="ar">➜</span><span class="st" style="color:#ffd0d6">罪人 v8<br><small>违背神律</small></span><span class="ar">➜</span><span class="st" style="color:#ffd0d6">仇敌 v10<br><small>与神敌对</small></span><span class="ar">➜</span><span class="st" style="color:#ffd0d6">在忿怒下 v9<br><small>当受审判</small></span></div>
+  <div class="quote">"你从何处得知你的罪恶和悲惨呢？从神的律法得知。"<small>海德堡要理问答 第3问（大意；请对照 ccifellowship.org 原文）</small></div>
+  <div class="key">"卑微"有两种：<b>处境的卑微</b>（受苦、被轻看）和<b>本性的卑微</b>（罪人、仇敌）。福音先处理后者，才真正医治前者。海德堡要理问答第一部分"人的罪恶与悲惨"正是从这里开始。</div>
+  <div class="hard">诗人说"这是我的懦弱"(v10)，原文 ḥallôtî 可译为"我的病痛/我的伤口"。意思不是"我错了，所以别难过"，而是承认：把神的作为与我此刻的感受等同，是我的软弱。这句是全诗的<b>转折枢纽</b>。</div>
+</section>
+
+<section id="p2">
+  <h2><span class="n">II</span>🌗 专心仰望神的决心</h2>
+  <p class="lead">诗77 的前半部分，主语多是"我"（约22次）；从 v13 起，主语变成"你"。仰望就是<mark>把视线从自己的心，移到神的作为</mark>。</p>
+  <figure class="fig">
+  <svg viewBox="0 0 900 220" role="img" aria-label="诗77主语转移图">
+    <rect x="20" y="40" width="420" height="70" rx="16" fill="rgba(239,122,133,.18)" stroke="#ef7a85"/>
+    <text x="230" y="70" fill="#ffd0d6" text-anchor="middle" font-size="18" font-weight="700">v1-9 · "我"</text>
+    <text x="230" y="95" fill="#a9a6c4" text-anchor="middle" font-size="13">我呼求、我想念、我沉吟、我省察……越看自己越黑</text>
+    <rect x="460" y="40" width="420" height="70" rx="16" fill="rgba(126,224,176,.15)" stroke="#7ee0b0"/>
+    <text x="670" y="70" fill="#c9f3dd" text-anchor="middle" font-size="18" font-weight="700">v13-20 · "你"</text>
+    <text x="670" y="95" fill="#a9a6c4" text-anchor="middle" font-size="13">你的作为、你的膀臂、你的道、你的路……越看神越亮</text>
+    <rect x="320" y="140" width="260" height="56" rx="28" fill="rgba(244,184,96,.2)" stroke="#f4b860" stroke-width="2"/>
+    <text x="450" y="166" fill="#f4b860" text-anchor="middle" font-size="16" font-weight="700">v10-12 · "我要追念"</text>
+    <text x="450" y="186" fill="#e9e6f5" text-anchor="middle" font-size="12">意志的决定，不是情绪的转变</text>
+    <path d="M230,110 C230,160 300,168 320,168" stroke="#f4b860" fill="none" stroke-width="2"/>
+    <path d="M580,168 C640,168 670,150 670,112" stroke="#f4b860" fill="none" stroke-width="2"/>
+  </svg>
+  <figcaption>从"我"到"你"：仰望的转向</figcaption>
+  </figure>
+  <div class="grid g3">
+    <div class="glass"><div class="k">🧠 追念 zākar</div><p>v11 "记念"。在圣经中，记念不只是回想，而是<b>按所记念的去行动</b>。神"记念"他的约（出2:24），百姓"记念"神的作为。圣餐正是"为的是记念我"（林前11:24）。</p></div>
+    <div class="glass"><div class="k">🗣 提说</div><p>v11 把神的作为<b>说出来</b>。信心借着言语坚固：唱诗、认信、传讲。这正是主日敬拜的功能——会众一同"提说"神的作为。</p></div>
+    <div class="glass"><div class="k">📚 思想 · 默念</div><p>v12 hāgâ，与诗1:2"昼夜思想"同字。仰望的决心要有内容：<b>神的话</b>。没有经文的"仰望"只是心理暗示。</p></div>
+  </div>
+  <h3>罗马书 5:1-5：仰望的新约根基</h3>
+  <p>诗人的仰望是"往回看出埃及"。保罗的仰望有三个时间方向：</p>
+  <div class="grid g3">
+    <div class="glass" style="border-color:var(--leaf)"><div class="k" style="color:var(--leaf)">⏮ 过去</div><p>"既因信称义"(v1)：已经完成的判决。<b>与神相和</b>是客观地位。</p></div>
+    <div class="glass" style="border-color:var(--sky)"><div class="k" style="color:var(--sky)">⏺ 现在</div><p>"现在所站的这恩典中"(v2)：我们<b>站着</b>，不是摇摆。圣灵已将神的爱浇灌在心里(v5)。</p></div>
+    <div class="glass" style="border-color:var(--dawn)"><div class="k" style="color:var(--dawn)">⏭ 将来</div><p>"盼望神的荣耀"(v2)：亚当失落的荣耀（罗3:23），在基督里要恢复并超越。</p></div>
+  </div>
+  <h3>⛓️ 患难的金链（罗5:3-5）</h3>
+  <div class="chain">
+    <span class="st" style="color:#ffd0d6">😣 患难</span><span class="ar">➜</span>
+    <span class="st" style="color:#ffe2b0">🧱 忍耐</span><span class="ar">➜</span>
+    <span class="st" style="color:#cfe6ff">💎 老练</span><span class="ar">➜</span>
+    <span class="st" style="color:#c9f3dd">🌅 盼望</span><span class="ar">➜</span>
+    <span class="st" style="color:#fff">🕊 不至羞耻</span>
+  </div>
+  <p>"老练"(dokimē) 指经过试验而被证实的品格，像金子经火炼验明。<mark>患难不制造盼望，它暴露并加深已经存在于基督里的盼望。</mark></p>
+  <div class="hard">"在患难中欢欢喜喜"不是否认痛苦。诗77 告诉我们可以哭；罗5 告诉我们哭的同时有底气。<b>欢喜的对象不是患难本身，而是神借患难成就的事</b>（雅1:2-4；彼前1:6-7）。</div>
+  <div class="key">"盼望不至于羞耻"的根据<b>不是我盼望得有多强</b>，而是"圣灵将神的爱浇灌在我们心里"(v5)。"浇灌"是完成时态：已经倒进来，而且还留在那里。仰望的决心，是圣灵在我们里面所作之工的果子。</div>
+</section>
+
+<section id="p3">
+  <h2><span class="n">III</span>🌕 神恩典的例证</h2>
+  <p class="lead">诗人选了一个例证：<b>出埃及</b>。保罗选了一个更大的例证：<b>十字架</b>。前者证明神能救；后者证明神<mark>为仇敌</mark>也愿意救。</p>
+  <div class="grid g2">
+    <div class="glass">
+      <h3 style="margin-top:0">🌊 例证一：红海（诗77:13-20）</h3>
+      <p>✅ <b>神的圣洁</b> v13 "你的作为是洁净的"（或译"你的道在圣所中"）<br>✅ <b>神的独一</b> v13 "有何神大如神呢"<br>✅ <b>神的赎买</b> v15 "用膀臂赎了你的民"（gā'al，至亲救赎者）<br>✅ <b>神的主权</b> v16-18 诸水、云、雷、电都听命<br>✅ <b>神的隐秘</b> v19 "你的脚踪无人知道"<br>✅ <b>神的牧养</b> v20 "好像羊群一般"</p>
+      <p style="color:var(--muted);font-size:14px">注意诗的结尾很安静：没有欢呼，只有牧人与羊群。真正的安慰是被<b>引导</b>，不是立刻被解释。</p>
+    </div>
+    <div class="glass">
+      <h3 style="margin-top:0">✝️ 例证二：十字架（罗5:6-11）</h3>
+      <p>✅ <b>准时</b> v6 "按所定的日期"<br>✅ <b>代替</b> v6, v8 "为罪人死""为我们死"<br>✅ <b>无条件</b> v7-8 不是为义人、仁人，而是为罪人<br>✅ <b>显明的爱</b> v8 神的爱"在此"被证明<br>✅ <b>血的称义</b> v9 免去神的忿怒<br>✅ <b>和好</b> v10-11 仇敌变成以神为乐的儿女</p>
+    </div>
+  </div>
+  <h3>📐 "更要"的逻辑：由大推小（a fortiori）</h3>
+  <figure class="fig">
+  <svg viewBox="0 0 900 230" role="img" aria-label="更要逻辑图">
+    <rect x="20" y="30" width="380" height="80" rx="14" fill="rgba(255,255,255,.06)" stroke="#a9a6c4"/>
+    <text x="210" y="62" fill="#fff" text-anchor="middle" font-size="16" font-weight="700">较难的事 · 已经做成</text>
+    <text x="210" y="90" fill="#ffd0d6" text-anchor="middle" font-size="14">我们作仇敌时 → 借神儿子的死与神和好</text>
+    <rect x="500" y="30" width="380" height="80" rx="14" fill="rgba(244,184,96,.15)" stroke="#f4b860"/>
+    <text x="690" y="62" fill="#f4b860" text-anchor="middle" font-size="16" font-weight="700">较易的事 · 更必做成</text>
+    <text x="690" y="90" fill="#c9f3dd" text-anchor="middle" font-size="14">既已和好 → 更要因他的生得救</text>
+    <path d="M400,70 L490,70" stroke="#f4b860" stroke-width="3" marker-end="url(#ah)"/>
+    <text x="445" y="58" fill="#f4b860" text-anchor="middle" font-size="18" font-weight="900">更要</text>
+    <text x="450" y="160" fill="#e9e6f5" text-anchor="middle" font-size="15">v9：既靠他的血称义 ⟹ 更要借着他免去忿怒</text>
+    <text x="450" y="190" fill="#e9e6f5" text-anchor="middle" font-size="15">v10：既借他的死和好 ⟹ 更要因他的生得救</text>
+    <text x="450" y="218" fill="#a9a6c4" text-anchor="middle" font-size="13">诗77 的逻辑也一样：神既在红海开了路，岂会在我的黑夜里没有路？</text>
+  </svg>
+  </figure>
+  <div class="key">愁苦之人最大的问题是：<b>拿现在的感受去解释神</b>。福音的方法是：<b>拿神已成就的作为去解释现在</b>。神对仇敌尚且如此，对已经和好的儿女，岂会半途而废？这就是"圣徒的坚忍"（多特信经第五项教义）的经文根基之一。</div>
+  <h3>🔄 两个例证对照</h3>
+  <div class="tbl"><table>
+    <tr><th>比较项</th><th>出埃及（诗77）</th><th>十字架（罗5）</th></tr>
+    <tr><td>奴役</td><td>法老的奴役</td><td>罪、死亡、神的忿怒</td></tr>
+    <tr><td>代价</td><td>逾越节羔羊的血</td><td>神儿子自己的血(v9)</td></tr>
+    <tr><td>经过的水</td><td>红海</td><td>审判之"洗"，基督亲自承受</td></tr>
+    <tr><td>领袖</td><td>摩西和亚伦(v20)</td><td>先知、祭司、君王合一的基督</td></tr>
+    <tr><td>受益者</td><td>雅各与约瑟的子孙</td><td>犹太人与外邦人（罗马教会）</td></tr>
+    <tr><td>结局</td><td>旷野中被引导</td><td>"以神为乐"(v11)，盼望荣耀</td></tr>
+  </table></div>
+</section>
+
+<section id="parallel">
+  <h2><span class="n">04</span>🔗 类似经文：同一个核心</h2>
+  <div class="tbl"><table>
+    <tr><th>经文</th><th>愁苦</th><th>转折</th><th>根据</th></tr>
+    <tr><td>哀 3:19-24</td><td>"记念我如茵陈和苦胆的困苦"</td><td>"我想起这事，心里就有指望"</td><td>神的怜悯每早晨都是新的</td></tr>
+    <tr><td>诗 42–43</td><td>"我的心哪，你为何忧闷？"</td><td>"应当仰望神"</td><td>神是我脸上的光</td></tr>
+    <tr><td>诗 73</td><td>看见恶人亨通而嫉妒</td><td>"等我进了神的圣所"</td><td>"除你以外，在天上我有谁呢"</td></tr>
+    <tr><td>哈 3:16-19</td><td>"我身体战兢…"</td><td>"然而我要因耶和华欢欣"</td><td>v8-15 同样追念出埃及！</td></tr>
+    <tr><td>林后 4:8-18</td><td>四面受敌、心里作难</td><td>"我们不丧胆"</td><td>暂时的苦楚成就极重无比永远的荣耀</td></tr>
+    <tr><td>罗 8:18-39</td><td>受造之物叹息</td><td>"若神帮助我们"</td><td>"神既不爱惜自己的儿子"——同样的"更要"逻辑</td></tr>
+    <tr><td>彼前 1:3-9</td><td>"暂时在百般的试炼中忧愁"</td><td>"你们是大有喜乐"</td><td>借基督复活重生，有活泼的盼望</td></tr>
+    <tr><td>来 12:1-3</td><td>灰心疲倦</td><td>"仰望为我们信心创始成终的耶稣"</td><td>他因那摆在前面的喜乐忍受了十字架</td></tr>
+  </table></div>
+</section>
+
+<section id="loop">
+  <h2><span class="n">05</span>♾️ 四重闭环</h2>
+  <figure class="fig">
+  <svg viewBox="0 0 900 380" role="img" aria-label="罪救赎感恩闭环">
+    <g id="spin">
+    <circle cx="450" cy="190" r="140" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="2" stroke-dasharray="6 8"/>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <circle cx="450" cy="60" r="52" fill="rgba(239,122,133,.25)" stroke="#ef7a85" stroke-width="2"/>
+      <text x="450" y="55" fill="#ffd0d6" font-weight="700">① 罪与悲惨</text><text x="450" y="76" fill="#e9e6f5" font-size="12">软弱·罪人·仇敌</text>
+      <circle cx="582" cy="255" r="52" fill="rgba(244,184,96,.25)" stroke="#f4b860" stroke-width="2"/>
+      <text x="582" y="250" fill="#ffe2b0" font-weight="700">② 救赎</text><text x="582" y="271" fill="#e9e6f5" font-size="12">血·称义·和好</text>
+      <circle cx="318" cy="255" r="52" fill="rgba(126,224,176,.22)" stroke="#7ee0b0" stroke-width="2"/>
+      <text x="318" y="250" fill="#c9f3dd" font-weight="700">③ 感恩</text><text x="318" y="271" fill="#e9e6f5" font-size="12">以神为乐·盼望</text>
+      <text x="450" y="195" fill="#fff" font-size="17" font-weight="900">愁苦之人</text><text x="450" y="217" fill="#a9a6c4" font-size="12">海德堡 Q2</text>
+    </g>
+    <path d="M500,85 C560,120 590,160 588,198" fill="none" stroke="#f4b860" stroke-width="2.5" marker-end="url(#ah)"/>
+    <path d="M530,282 C490,310 410,310 370,282" fill="none" stroke="#f4b860" stroke-width="2.5" marker-end="url(#ah)"/>
+    <path d="M300,203 C300,150 350,100 398,78" fill="none" stroke="#f4b860" stroke-width="2.5" marker-end="url(#ah)"/>
+    <text x="80" y="60" fill="#a9a6c4" font-size="13">感恩并不终止认罪，</text><text x="80" y="80" fill="#a9a6c4" font-size="13">而是更深地认识恩典</text>
+    <text x="680" y="330" fill="#a9a6c4" font-size="13">诗77 走一圈：呼求→追念→敬拜</text>
+  </svg>
+  </figure>
+  <div class="grid g2">
+    <div class="glass"><div class="k">① 救赎历史闭环</div><p>创造 → 堕落 → <b>出埃及（诗77）</b> → 被掳的黑夜 → <b>基督的新出埃及（罗5）</b> → 圣灵浇灌 → 教会在患难中 → 神荣耀的显现。诗77 所追念的，在罗5 被成全；罗5 所盼望的，在启21 被完成（"神要擦去他们一切的眼泪"）。</p></div>
+    <div class="glass"><div class="k">② 圣约神学闭环</div><p><b>行为之约</b>中亚当失落荣耀（罗3:23；5:12）→ <b>恩典之约</b>中神向亚伯拉罕、摩西应许"慈爱与信实"（诗77:8 所问）→ 基督作<b>中保</b>，满足约的要求（罗5:9 血）→ 约的福分：平安、进入、盼望（罗5:1-2）→ 约的确据：圣灵（罗5:5）→ 约的完成：以神为乐（罗5:11）。</p></div>
+    <div class="glass"><div class="k">③ 圣经神学闭环</div><p>"记念"主题：神记念约（创9:15；出2:24）→ 百姓记念神的作为（诗77:11）→ 主设立记念的圣餐（路22:19）→ 我们在患难中"提说"神的作为。"水"主题：创造之水 → 洪水 → 红海 → 约旦河 → 基督受洗与受难 → 洗礼 → 新天新地"海也不再有了"（启21:1）。</p></div>
+    <div class="glass"><div class="k">④ 改革宗闭环：罪 · 救赎 · 感恩</div><p><b>罪</b>：诗77:10 "这是我的懦弱"；罗5:6-10 软弱、罪人、仇敌。<br><b>救赎</b>：罗5:8-10 基督的死与生。<br><b>感恩</b>：罗5:11 以神为乐；诗77 以敬拜作结。正对应海德堡要理问答第2问所列的三件事。</p></div>
+  </div>
+</section>
+
+<section id="angles">
+  <h2><span class="n">06</span>🧭 多重视角解读</h2>
+  <div class="grid g3">
+    <div class="glass"><div class="k">👑 三一神论视角</div><p><b>父</b>显明他的爱（罗5:8）；<b>子</b>为罪人死、因他的生使我们得救（v10）；<b>圣灵</b>将神的爱浇灌在心（v5）。盼望是三一神共同的工作。</p></div>
+    <div class="glass"><div class="k">✝️ 基督论视角</div><p>诗77:20 "借摩西和亚伦"引导——基督是更大的先知（摩西）与祭司（亚伦），又是好牧人（约10）。基督在客西马尼也在夜间"不住地"祷告。</p></div>
+    <div class="glass"><div class="k">⛪ 教会论视角</div><p>诗77 交与伶长，是会众诗。愁苦不该独自承受。罗5 写给分裂的犹太-外邦教会：同一个和好，造就同一个身体。</p></div>
+    <div class="glass"><div class="k">🧠 牧养心理视角</div><p>诗人做了"反刍"(rumination) 的反面：从<b>向内的省察</b>转向<b>有内容的回忆</b>。圣经允许哀歌，但不把人留在哀歌里。</p></div>
+    <div class="glass"><div class="k">⏳ 末世论视角</div><p>"盼望神的荣耀"(v2)是末世性的；"更要因他的生得救"(v10)指最后的拯救。今天的愁苦属于"已然未然"的张力。</p></div>
+    <div class="glass"><div class="k">📜 文学视角</div><p>诗77 中两次"细拉"(v3,9)出现在最低点，第三次(v15)出现在救赎处。罗5:3、v11 两个"不但如此"把信息推向高潮。</p></div>
+  </div>
+</section>
+
+<section id="confess">
+  <h2><span class="n">07</span>🏛️ 信条见证</h2>
+  <p style="color:var(--muted);font-size:14px">以下信条内容为要点概述或节录，便于理解；正式引用请以 ccifellowship.org 所载原文为准（本页未能逐字核对该站文字，因此不以引号冒充原文）。</p>
+  <div class="tbl"><table>
+    <tr><th>信条</th><th>条目</th><th>与本讲章的关系</th></tr>
+    <tr><td>海德堡要理问答</td><td>第1问</td><td>生与死唯一的安慰：我身体与灵魂都属于信实的救主耶稣基督；他用宝血偿清我的罪，保守我，使头发也不掉一根——<b>愁苦者的安慰不在处境，而在归属</b></td></tr>
+    <tr><td>海德堡要理问答</td><td>第2问</td><td>为得此安慰须知三件事：罪恶与悲惨有多大、如何得救赎、如何为此感恩——<b>本讲三段的骨架</b></td></tr>
+    <tr><td>海德堡要理问答</td><td>第26–28问</td><td>神的护理：一切临到的事都不是偶然，乃出于父的手；故在逆境中忍耐、顺境中感恩——<b>对应"你的脚踪无人知道"</b></td></tr>
+    <tr><td>海德堡要理问答</td><td>第44问</td><td>"降在阴间"：基督在十字架上承受地狱般的痛苦与被弃，使我在最大的试探中确知已蒙救脱——<b>诗人以为被丢弃，基督真实被丢弃</b></td></tr>
+    <tr><td>海德堡要理问答</td><td>第60问</td><td>唯独因信耶稣基督在神面前称义，神将基督的义归给我——<b>罗5:1</b></td></tr>
+    <tr><td>比利时信条</td><td>第13条</td><td>神的护理带来"说不出的安慰"——<b>诗77:13-20</b></td></tr>
+    <tr><td>比利时信条</td><td>第22–23条</td><td>因信称义，基督的顺服归给我们；良心因此得平安，不再像亚当那样战兢躲藏——<b>罗5:1"与神相和"</b></td></tr>
+    <tr><td>多特信经</td><td>第二项教义</td><td>基督之死的价值与功效，确实救赎蒙拣选的人——<b>罗5:8-10 为"我们"死</b></td></tr>
+    <tr><td>多特信经</td><td>第五项教义</td><td>圣徒的坚忍：信徒虽有软弱与跌倒，神却信实地保守到底；确据来自神的应许、圣灵的见证与圣洁的果子——<b>罗5:5, 9-10 "更要"</b></td></tr>
+    <tr><td>威斯敏斯特小要理问答</td><td>第1问</td><td>人生首要目的：荣耀神，以神为乐，直到永远——<b>罗5:11 "以神为乐"</b></td></tr>
+    <tr><td>威斯敏斯特小要理问答</td><td>第36问</td><td>称义、儿子名分、成圣带来的益处：神爱的确据、良心平安、圣灵中的喜乐、恩典增长、坚忍到底——<b>几乎是罗5:1-5 的摘要</b></td></tr>
+    <tr><td>威斯敏斯特信仰告白</td><td>第18章</td><td>得救的确据可能动摇、减弱、被打断（如诗77 的光景），但真信徒不会完全失去神的种子与信心的生命</td></tr>
+  </table></div>
+</section>
+
+<section id="apply">
+  <h2><span class="n">08</span>🙏 应用：从夜到黎明的四步</h2>
+  <div class="grid g4">
+    <div class="glass" style="border-color:var(--rose)"><div class="k" style="color:var(--rose)">1 · 说出来</div><p>像诗人一样把问题带到神面前。哀歌也是祷告。不要在会众中假装没事。</p></div>
+    <div class="glass" style="border-color:var(--dawn)"><div class="k" style="color:var(--dawn)">2 · 命名软弱</div><p>"这是我的懦弱"：承认我的感受不是神的真相。用神的话纠正自己的结论。</p></div>
+    <div class="glass" style="border-color:var(--sky)"><div class="k" style="color:var(--sky)">3 · 追念作为</div><p>读出埃及、读福音书受难记、领圣餐；也写下神在你生命中具体的引领。</p></div>
+    <div class="glass" style="border-color:var(--leaf)"><div class="k" style="color:var(--leaf)">4 · 以神为乐</div><p>不等到处境改变才感恩。在主日与圣徒一同唱诗，让盼望被会众的声音托住。</p></div>
+  </div>
+</section>
+
+<section id="creeds">
+  <h2><span class="n">09</span>📜 三大普世信经 · 干净阅读版</h2>
+  <div class="hard">信经文字为华人教会通行译本的整理稿。你要求"一字不差来自 ccifellowship.org"，本页未能从该站逐字核对，背诵前请以该站原文为准逐句校对。</div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-t="c1">使徒信经</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="c2">尼西亚信经</button>
+    <button class="tab" role="tab" aria-selected="false" data-t="c3">亚他那修信经</button>
+  </div>
+  <div class="creed" id="c1">
+    <h3>使徒信经</h3><div class="meta">约2–4世纪由罗马洗礼信条发展而成 · 12条 · 用于洗礼认信</div>
+    <span class="art"><b>01</b>我信上帝，全能的父，创造天地的主。</span>
+    <span class="art"><b>02</b>我信我主耶稣基督，上帝的独生子；</span>
+    <span class="art"><b>03</b>因着圣灵感孕，由童贞女马利亚所生；</span>
+    <span class="art"><b>04</b>在本丢彼拉多手下受难，被钉于十字架，受死，埋葬；降在阴间；</span>
+    <span class="art"><b>05</b>第三天从死人中复活；</span>
+    <span class="art"><b>06</b>升天，坐在全能父上帝的右边；</span>
+    <span class="art"><b>07</b>将来必从那里降临，审判活人死人。</span>
+    <span class="art"><b>08</b>我信圣灵；</span>
+    <span class="art"><b>09</b>我信圣而公之教会；我信圣徒相通；</span>
+    <span class="art"><b>10</b>我信罪得赦免；</span>
+    <span class="art"><b>11</b>我信身体复活；</span>
+    <span class="art"><b>12</b>我信永生。阿们。</span>
+  </div>
+  <div class="creed" id="c2" hidden>
+    <h3>尼西亚信经</h3><div class="meta">主后325年尼西亚会议，381年君士坦丁堡会议扩充 · 西方加"和子"</div>
+    <p>我信独一上帝，全能的父，创造天地和有形无形万物的主。</p>
+    <p>我信独一主耶稣基督，上帝的独生子，在万世以先为父所生，出于上帝而为上帝，出于光而为光，出于真神而为真神，受生而非被造，与父一体，万物都是借着他造的；他为要拯救我们世人，从天降临，因着圣灵，从童贞女马利亚成肉身，而为人；在本丢彼拉多手下，为我们钉于十字架，受难，埋葬；照圣经所言，第三天复活；升天，坐在父的右边；将来必有荣耀再降临，审判活人死人；他的国度永无穷尽。</p>
+    <p>我信圣灵，赐生命的主，从父和子而出，与父子同受敬拜，同受尊荣，他曾借众先知说话。</p>
+    <p>我信独一圣而公之使徒的教会。我认使罪得赦的独一洗礼。我望死人复活，并来世的永生。阿们。</p>
+  </div>
+  <div class="creed" id="c3" hidden>
+    <h3>亚他那修信经</h3><div class="meta">约5–6世纪，拉丁西方 · 托名亚他那修 · 精确界定三一与二性</div>
+    <ol>
+      <li>凡人欲得救，首先当持守大公教会的信仰。</li>
+      <li>凡不全守此信仰者，必永远沉沦。</li>
+      <li>大公教会的信仰乃是：我们敬拜一位在三位里的上帝，三位在一位里的上帝；</li>
+      <li>位格不混乱，本质不分开。</li>
+      <li>父是一位，子是一位，圣灵也是一位；</li>
+      <li>然而父、子、圣灵同一神性，同等荣耀，同永远威严。</li>
+      <li>父如何，子也如何，圣灵也如何。</li>
+      <li>父非受造，子非受造，圣灵也非受造；</li>
+      <li>父无限，子无限，圣灵也无限；</li>
+      <li>父永恒，子永恒，圣灵也永恒；</li>
+      <li>然而非三个永恒者，乃一个永恒者；</li>
+      <li>亦非三个非受造者，亦非三个无限者，乃一个非受造者，一个无限者。</li>
+      <li>如此，父全能，子全能，圣灵也全能；</li>
+      <li>然而非三个全能者，乃一个全能者。</li>
+      <li>如此，父是上帝，子是上帝，圣灵也是上帝；</li>
+      <li>然而非三个上帝，乃一个上帝。</li>
+      <li>如此，父是主，子是主，圣灵也是主；</li>
+      <li>然而非三个主，乃一个主。</li>
+      <li>因为基督真理使我们承认每一位格各自是上帝、是主；</li>
+      <li>大公信仰也禁止我们说有三个上帝或三个主。</li>
+      <li>父不是被造，不是受造，也不是受生的。</li>
+      <li>子独由父而来，非被造，非受造，乃受生的。</li>
+      <li>圣灵由父和子而来，非被造，非受造，非受生，乃发出的。</li>
+      <li>如此，只有一位父，不是三位父；一位子，不是三位子；一位圣灵，不是三位圣灵。</li>
+      <li>在这三位中，无先无后，无大无小；</li>
+      <li>三位乃同永恒、同等。</li>
+      <li>所以如上所言，在一切事上，当敬拜三位一体中的一位，一位之中的三位。</li>
+      <li>凡欲得救者，必须如此思想三位一体的上帝。</li>
+      <li>再者，为永远得救，也必须忠实相信我主耶稣基督成为肉身。</li>
+      <li>正确的信仰乃是：我们相信并承认，上帝的儿子我主耶稣基督，是上帝，也是人。</li>
+      <li>他是上帝，在万世以先由父的本质所生；他是人，在世上由他母亲的本质所生；</li>
+      <li>完全的上帝，完全的人，具有理性的灵魂和人的肉身；</li>
+      <li>按神性说，他与父同等；按人性说，他低于父。</li>
+      <li>他虽是上帝也是人，却不是两位，乃是一位基督；</li>
+      <li>是一位，并非由神性变为肉身，乃是将人性取入于上帝；</li>
+      <li>完全是一位，并非本质混合，乃是位格合一。</li>
+      <li>正如理性的灵魂与肉身是一个人，上帝与人也是一位基督。</li>
+      <li>他为我们得救受难，降在阴间，第三天从死人中复活。</li>
+      <li>他升天，坐在全能父上帝的右边，将来必从那里降临，审判活人死人。</li>
+      <li>他降临时，万人必带着自己的身体复活，</li>
+      <li>并要为自己的行为交账。</li>
+      <li>行善的必进入永生；作恶的必入永火。</li>
+      <li>这就是大公信仰；人除非忠实坚定地相信，就不能得救。阿们。</li>
+    </ol>
+  </div>
+</section>
+
+<section id="compare">
+  <h2><span class="n">10</span>⚖️ 三份信经深度对比</h2>
+  <div class="tbl"><table>
+    <tr><th>项目</th><th>📘 使徒信经</th><th>📗 尼西亚信经</th><th>📕 亚他那修信经</th></tr>
+    <tr><td>形成</td><td>2–4世纪，罗马洗礼信条</td><td>325 尼西亚 / 381 君士坦丁堡</td><td>约5–6世纪，西方拉丁教会</td></tr>
+    <tr><td>对付的问题</td><td>诺斯底主义、马吉安（否认创造主、否认真实肉身）</td><td>亚流主义（子是受造者）；马其顿派（否认圣灵神性）</td><td>撒伯流派、亚流派余绪；聂斯脱利（二位）、欧迪奇（混合一性）</td></tr>
+    <tr><td>核心焦点</td><td>救赎事件的叙述</td><td>子与父"同质"(homoousios)</td><td>三一的精确定义 + 基督二性一位</td></tr>
+    <tr><td>结构</td><td>三段：父·子·圣灵（12条）</td><td>三段，子部分大幅展开</td><td>两大部分：三一（1–28）+ 道成肉身（29–44）</td></tr>
+    <tr><td>语言风格</td><td>简洁、叙事</td><td>礼仪性、哲学精确</td><td>教义性、对称、带警语</td></tr>
+    <tr><td>使用场合</td><td>洗礼、主日认信、教理问答</td><td>圣餐礼、东西方共同</td><td>教导、辨别异端</td></tr>
+    <tr><td>"降在阴间"</td><td>有</td><td>无</td><td>有</td></tr>
+    <tr><td>"和子"</td><td>未涉及</td><td>西方版本有（589年后）</td><td>明确有（第23条）</td></tr>
+    <tr><td>在三项联合信条中</td><td>海德堡 Q23–58 逐条讲解</td><td>比利时信条第9条承认</td><td>比利时信条第9条承认</td></tr>
+  </table></div>
+  <div class="grid g3">
+    <div class="glass"><div class="k">✅ 相同点</div><p>都是三一结构；都承认基督真实受难、复活、再来、审判；都是"大公"的——属于全教会而非一宗派；都在圣经之下（规范的规范 vs 被规范的规范）。</p></div>
+    <div class="glass"><div class="k">🔀 不同点</div><p>精确度递增：使徒信经叙述"发生了什么"，尼西亚回答"子是谁"，亚他那修回答"三与一、神与人如何同时成立"。</p></div>
+    <div class="glass"><div class="k">❓ 为什么需要三份</div><p>每当异端用圣经的话说出错误的意思，教会就必须用更精确的话守住圣经的意思。一份信经回答一个时代的问题；三份合起来，像三道城墙保护同一个福音。</p></div>
+  </div>
+  <div class="key">与本讲章的连接：愁苦之人的盼望建立在<b>"谁"为我们死</b>之上。若基督不是真神（尼西亚），他的死不能"显明神的爱"(罗5:8)；若他不是真人（亚他那修），他不能"为我们"死；若他没有真实受难、复活（使徒信经），"更要因他的生得救"(罗5:10) 就落空。</div>
+</section>
+
+<section id="unity">
+  <h2><span class="n">11</span>🧱 三项联合信条一览</h2>
+  <div class="tbl"><table>
+    <tr><th>信条</th><th>年代 / 作者</th><th>处境</th><th>体裁</th><th>与本讲关联</th></tr>
+    <tr><td>比利时信条</td><td>1561 · 布雷斯（Guido de Brès）</td><td>尼德兰改革宗受西班牙逼迫，向国王证明并非叛乱分子；作者1567年殉道</td><td>37条信仰告白</td><td>受苦教会写下的盼望；第13、22-23条</td></tr>
+    <tr><td>海德堡要理问答</td><td>1563 · 乌尔辛努斯、俄利维亚努斯等</td><td>普法尔茨选侯腓特烈三世，为教导青年与牧者统一教导</td><td>129问答 / 52主日</td><td>第1–2问结构、第44问、第60问</td></tr>
+    <tr><td>多特信经</td><td>1618–19 · 多特会议</td><td>回应抗辩派（阿民念派）五点</td><td>五项教义 + 驳谬</td><td>第五项：圣徒的坚忍</td></tr>
+  </table></div>
+</section>
+
+<section id="qa">
+  <h2><span class="n">12</span>💬 讨论题与答案分析</h2>
+  <details><summary>Q1. 诗人"想念神就烦躁不安"(77:3)，为什么想到神反而更痛苦？</summary><div class="ans"><p>因为他所知道的神（慈爱、信实）与他所经历的处境似乎矛盾。越确信神是好的，越难理解为何神不出手。<b>分析</b>：这说明诗人是信徒，不信的人不会为"神的应许废弃"而失眠。痛苦本身证明他里面有对神的认识。答案不在降低对神的认识，而是加深：从抽象属性转向具体作为（v11）。</p></div></details>
+  <details><summary>Q2. v10 "这是我的懦弱"的转折，是情绪改变还是意志决定？</summary><div class="ans"><p>是意志的决定。经文没有说他感觉好了，而是说"我要追念"。<b>分析</b>：圣经中的信心常常先于感受。改革宗强调信心包含知识、认同与信靠（海德堡 Q21），"确实的知识"与"由衷的信靠"是圣灵借福音在人心里所作的工，不靠情绪起伏。</p></div></details>
+  <details><summary>Q3. 为什么诗人偏偏追念出埃及，而不是别的事？</summary><div class="ans"><p>出埃及是旧约中神救赎的<b>范式事件</b>：神听见呼求（出2:23-25）、记念约、用大能膀臂拯救、在不可能处开路。诗人的处境（呼求、似被遗忘、看不到出路）与出埃及前的以色列一样。<b>分析</b>：圣经教导我们用救赎历史解释个人经历，而不是用个人经历质疑救赎历史。新约信徒的范式事件是十字架与复活。</p></div></details>
+  <details><summary>Q4. "患难生忍耐"——难道患难本身是好的吗？</summary><div class="ans"><p>不是。患难是堕落世界的结果，本身不是善。但对已称义的人，神掌管患难使之"效力"（罗8:28）。<b>分析</b>：链条的起点是 v1-2 的称义与盼望。对不信的人，患难常产生苦毒；对在基督里的人，患难暴露并炼净已有的盼望。参海德堡 Q1 "万事互相效力"与 Q28 护理之益处。</p></div></details>
+  <details><summary>Q5. 罗5:9-10 的"更要"如何回答诗77:7 "主要永远丢弃我吗"？</summary><div class="ans"><p>诗人怕神半途放弃。保罗论证：神在我们作仇敌时已付出最大代价（儿子的死），如今我们已成和好的儿女，神怎会不完成最后的拯救？<b>分析</b>：这是多特信经第五项教义"圣徒坚忍"的核心逻辑：坚忍的根据不在我们的持守，而在神的信实与基督工作的完全。</p></div></details>
+  <details><summary>Q6. "你的脚踪无人知道"(77:19)：神引导时为什么不让人看见路？</summary><div class="ans"><p>以色列在红海前看不见路，路是在水分开时才出现的。神的护理常常只在回顾时看清。<b>分析</b>：这防止我们信靠"路线图"而不信靠"引路的神"。比利时信条第13条承认神的护理有我们不能测透之处，并劝我们不要好奇探究超过所能明白的，而在其中得安慰。</p></div></details>
+  <details><summary>Q7. 诗77 以"羊群"安静收尾，没有大欢喜，这对我们有何意义？</summary><div class="ans"><p>真实的信仰不需要每次都有"胜利结局"。被牧人引导、知道自己属于他，就足够了。<b>分析</b>：这与海德堡 Q1 "我属于…信实的救主"相合。罗5 把这份安静推向"以神为乐"(v11)，因为新约信徒更清楚看见那位好牧人为羊舍命。</p></div></details>
+  <details><summary>Q8. 圣灵将神的爱"浇灌"在我们心里（罗5:5），这与客观的称义是什么关系？</summary><div class="ans"><p>称义是<b>客观的法庭宣告</b>（在我们以外，基督的义归给我们）；圣灵浇灌是<b>主观的确据</b>（在我们里面，使我们经历神的爱）。<b>分析</b>：改革宗不以感受为称义根据，但也不轻看圣灵的内在见证（罗8:16；多特信经五10）。两者都出于同一位神，不可对立。</p></div></details>
+  <details><summary>Q9. 教会在患难中的人身上，该如何实践诗77？</summary><div class="ans"><p>1）允许哀歌：在公共敬拜中唱哀歌诗篇；2）陪伴"追念"：探访时读经、提说神的作为，而非只给建议；3）圣餐：用有形的记号让人"记念"十字架；4）代祷：把软弱的肢体放进会众的祷告。<b>分析</b>：诗77 本是会众诗，个人的黑夜要由群体的歌声托住（加6:2）。</p></div></details>
+</section>
+
+<section id="mind">
+  <h2><span class="n">13</span>🧠 思维导图</h2>
+  <figure class="fig">
+  <svg viewBox="0 0 1000 470" role="img" aria-label="讲章思维导图">
+    <g stroke-width="2" fill="none">
+      <path d="M500,235 C380,235 360,90 250,90" stroke="#ef7a85"/>
+      <path d="M500,235 C380,235 360,235 250,235" stroke="#f4b860"/>
+      <path d="M500,235 C380,235 360,380 250,380" stroke="#7ee0b0"/>
+      <path d="M500,235 C620,235 640,90 750,90" stroke="#7cc4ff"/>
+      <path d="M500,235 C620,235 640,235 750,235" stroke="#b69cff"/>
+      <path d="M500,235 C620,235 640,380 750,380" stroke="#f4b860"/>
+    </g>
+    <rect x="410" y="200" width="180" height="70" rx="35" fill="rgba(244,184,96,.25)" stroke="#f4b860" stroke-width="2"/>
+    <text x="500" y="232" text-anchor="middle" fill="#fff" font-size="18" font-weight="900">愁苦之人的盼望</text>
+    <text x="500" y="254" text-anchor="middle" fill="#a9a6c4" font-size="12">罗5:1-11 · 诗77</text>
+    <g font-size="13" fill="#e9e6f5">
+      <rect x="40" y="55" width="210" height="80" rx="12" fill="rgba(239,122,133,.15)" stroke="#ef7a85"/>
+      <text x="55" y="78" fill="#ffd0d6" font-weight="700" font-size="15">一、卑微愁苦</text><text x="55" y="100">失眠·不受安慰·六个"难道"</text><text x="55" y="120">软弱→罪人→仇敌</text>
+      <rect x="40" y="195" width="210" height="80" rx="12" fill="rgba(244,184,96,.15)" stroke="#f4b860"/>
+      <text x="55" y="218" fill="#ffe2b0" font-weight="700" font-size="15">二、专心仰望</text><text x="55" y="240">我要追念·提说·思想</text><text x="55" y="260">患难→忍耐→老练→盼望</text>
+      <rect x="40" y="340" width="210" height="80" rx="12" fill="rgba(126,224,176,.15)" stroke="#7ee0b0"/>
+      <text x="55" y="363" fill="#c9f3dd" font-weight="700" font-size="15">三、恩典例证</text><text x="55" y="385">红海：膀臂·道路·牧人</text><text x="55" y="405">十字架：血·和好·"更要"</text>
+      <rect x="750" y="55" width="210" height="80" rx="12" fill="rgba(124,196,255,.15)" stroke="#7cc4ff"/>
+      <text x="765" y="78" fill="#cfe6ff" font-weight="700" font-size="15">背景</text><text x="765" y="100">亚萨·国难·会众诗</text><text x="765" y="120">保罗·57年·罗马教会</text>
+      <rect x="750" y="195" width="210" height="80" rx="12" fill="rgba(182,156,255,.15)" stroke="#b69cff"/>
+      <text x="765" y="218" fill="#e2dcff" font-weight="700" font-size="15">闭环</text><text x="765" y="240">罪 → 救赎 → 感恩</text><text x="765" y="260">出埃及 → 十字架 → 荣耀</text>
+      <rect x="750" y="340" width="210" height="80" rx="12" fill="rgba(244,184,96,.15)" stroke="#f4b860"/>
+      <text x="765" y="363" fill="#ffe2b0" font-weight="700" font-size="15">信条</text><text x="765" y="385">海德堡 Q1·Q2·Q44·Q60</text><text x="765" y="405">比利时 13·22 · 多特 五</text>
+    </g>
+  </svg>
+  </figure>
+</section>
+
+<section id="cards">
+  <h2><span class="n">14</span>🃏 记忆卡（点击翻转）</h2>
+  <div class="grid g3">
+    <div class="flip" tabindex="0"><div class="in"><div class="f">诗77 的转折句？<small>点击看答案</small></div><div class="b">v10 "这是我的懦弱，但我要追念至高者显出右手之年代。"——从"我"转向"你"。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">罗5 描述未得救之人的三个词？<small>点击看答案</small></div><div class="b">软弱(v6)、罪人(v8)、仇敌(v10)；并处在神的忿怒之下(v9)。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">患难的金链？<small>点击看答案</small></div><div class="b">患难 → 忍耐 → 老练 → 盼望 → 不至于羞耻（因圣灵浇灌神的爱）。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">两个"更要"在哪里？<small>点击看答案</small></div><div class="b">v9 既靠血称义，更要免去忿怒；v10 既借死和好，更要因他的生得救。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">诗人追念的例证？<small>点击看答案</small></div><div class="b">出埃及：膀臂赎民(v15)、诸水战抖(v16)、道在海中(v19)、借摩西亚伦如羊群(v20)。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">海德堡第2问的三件事？<small>点击看答案</small></div><div class="b">罪与悲惨有多大；如何从罪中得救赎；如何为救赎向神感恩。= 本讲三段。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">尼西亚信经对付谁？<small>点击看答案</small></div><div class="b">亚流主义：主张子是受造者。信经宣告子"与父一体"(同质)。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">亚他那修信经两大部分？<small>点击看答案</small></div><div class="b">三位一体（一神三位，位格不混乱、本质不分开）+ 道成肉身（一位基督，二性不混合）。</div></div></div>
+    <div class="flip" tabindex="0"><div class="in"><div class="f">坚忍的根据在谁？<small>点击看答案</small></div><div class="b">在神的信实与基督工作的完全（罗5:9-10；多特信经第五项教义），不在我们的持守。</div></div></div>
+  </div>
+</section>
+
+<section id="sum">
+  <h2><span class="n">15</span>✅ 总结列表</h2>
+  <div class="tbl"><table>
+    <tr><th>#</th><th>主题</th><th>诗 77</th><th>罗 5:1-11</th><th>信条</th><th>一句话</th></tr>
+    <tr><td>1</td><td>🌑 卑微愁苦</td><td>v1-9</td><td>v6-10</td><td>海德堡 Q3-11</td><td>先看清我的悲惨有多大</td></tr>
+    <tr><td>2</td><td>⚡ 转折</td><td>v10</td><td>v1 "既"</td><td>海德堡 Q21</td><td>信心是决定，不是情绪</td></tr>
+    <tr><td>3</td><td>🌗 专心仰望</td><td>v11-12</td><td>v2-5</td><td>比利时 22-23</td><td>追念、提说、思想神的作为</td></tr>
+    <tr><td>4</td><td>🌊 例证一</td><td>v13-20</td><td>—</td><td>比利时 13</td><td>神能在海中开路</td></tr>
+    <tr><td>5</td><td>✝️ 例证二</td><td>—</td><td>v6-10</td><td>海德堡 Q44, 60</td><td>神为仇敌舍了儿子</td></tr>
+    <tr><td>6</td><td>📐 "更要"</td><td>隐含</td><td>v9-10</td><td>多特 第五项</td><td>大事已成，小事必成</td></tr>
+    <tr><td>7</td><td>🌅 感恩</td><td>羊群</td><td>v11 以神为乐</td><td>威斯敏斯特小要理 Q1</td><td>盼望的终点是神自己</td></tr>
+  </table></div>
+  <div class="key">背下这一句就记住整篇：<b>夜里看自己会沉下去；追念红海会站起来；仰望十字架会欢喜——因为神对仇敌尚且舍子，对儿女"更要"保守到底。</b></div>
+</section>
+
+<div class="foot">
+  <p>参考：<a href="https://ccifellowship.org" target="_blank" rel="noopener">ccifellowship.org</a>（信经信条原文，请以此为准）· <a href="https://www.ccreformed.org" target="_blank" rel="noopener">洛杉矶改革宗·恩约教会</a> · <a href="https://www.reformedbeginner.net" target="_blank" rel="noopener">改革宗初学者</a> · <a href="https://canrc.org" target="_blank" rel="noopener">canrc.org</a> · <a href="https://www.urcna.org" target="_blank" rel="noopener">urcna.org</a> · <a href="https://heritagereformed.com" target="_blank" rel="noopener">heritagereformed.com</a> · <a href="https://www.prca.org" target="_blank" rel="noopener">prca.org</a> · <a href="https://opc.org" target="_blank" rel="noopener">opc.org</a> · <a href="https://canadianreformedseminary.ca" target="_blank" rel="noopener">CRTS</a> · <a href="https://www.wts.edu" target="_blank" rel="noopener">WTS</a></p>
+  <p>经文采用和合本。版本 v1.0 · 2026-10-17 · CCser</p>
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  var b=document.body, btn=document.getElementById('tocBtn');
+  function mobile(){return matchMedia('(max-width:900px)').matches}
+  btn.addEventListener('click',function(){ if(mobile()) b.classList.toggle('show-toc'); else b.classList.toggle('hide-toc'); });
+  document.querySelectorAll('#toc a').forEach(function(a){a.addEventListener('click',function(){ if(mobile()) b.classList.remove('show-toc'); });});
+  var links=[].slice.call(document.querySelectorAll('#toc a')), prog=document.getElementById('prog');
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+  function onScroll(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    prog.style.width=(max>0?h.scrollTop/max*100:0)+'%';
+    var cur=0; targets.forEach(function(t,i){ if(t && t.getBoundingClientRect().top<120) cur=i; });
+    links.forEach(function(a,i){a.classList.toggle('on',i===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.setAttribute('aria-selected','false'); document.getElementById(x.dataset.t).hidden=true;});
+    t.setAttribute('aria-selected','true'); document.getElementById(t.dataset.t).hidden=false;
+  });});
+  document.querySelectorAll('.flip').forEach(function(f){
+    f.addEventListener('click',function(){f.classList.toggle('on')});
+    f.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();f.classList.toggle('on')}});
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);} });},{rootMargin:'0px 0px -5% 0px'});
+    document.querySelectorAll('section .glass, section .fig').forEach(function(el){ if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv','pre'); io.observe(el);} });
+  }
+  var c=document.getElementById('sky'), x=c.getContext('2d'), stars=[], reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function size(){c.width=innerWidth;c.height=innerHeight;stars=[];for(var i=0;i<Math.min(160,innerWidth/6);i++)stars.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*1.3+.2,p:Math.random()*6.28});}
+  function draw(t){
+    var g=x.createRadialGradient(c.width*.8,0,0,c.width*.8,0,c.width*.7);g.addColorStop(0,'#2b2a6b');g.addColorStop(1,'#0b1024');
+    x.fillStyle=g;x.fillRect(0,0,c.width,c.height);
+    var h=document.documentElement, k=Math.min(1,h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight));
+    var d=x.createLinearGradient(0,c.height,0,c.height*.4);d.addColorStop(0,'rgba(244,184,96,'+(.28*k)+')');d.addColorStop(1,'rgba(244,184,96,0)');
+    x.fillStyle=d;x.fillRect(0,0,c.width,c.height);
+    stars.forEach(function(s){x.globalAlpha=(.4+.6*Math.abs(Math.sin(s.p+t/1400)))*(1-k*.6);x.fillStyle='#fff';x.beginPath();x.arc(s.x,s.y,s.r,0,6.28);x.fill();});
+    x.globalAlpha=1; if(!reduce) requestAnimationFrame(draw);
+  }
+  addEventListener('resize',size); size(); requestAnimationFrame(draw);
+  if(reduce) addEventListener('scroll',function(){draw(0)},{passive:true});
+})();
+</script>
+</body></html>
